@@ -5,7 +5,7 @@
       <span>{{ node.name }}</span>
       <button (click)="addNode(node, 'My custom node')">Add node</button>
       <ul *ngIf="node.children">
-        <!-- TODO: add <app-recursive-tree [children]="node.children"></app-recursive-tree> -->
+        <app-recursive-tree [children]="node.children"></app-recursive-tree>
       </ul>
     </li>
   </ul>

@@ -1,0 +1,7 @@
+<li *ngFor="let child of children">
+  <span>{{ child.name }}</span>
+  <button (click)="addNode(child, 'My custom node')">Add node</button>
+  <ul *ngIf="child.children">
+    <app-recursive-tree [children]="child.children"></app-recursive-tree>
+  </ul>
+</li>
