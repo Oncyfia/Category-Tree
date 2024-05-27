@@ -1,0 +1,33 @@
+<div>
+  <h2>Recursive Tree</h2>
+  <ul>
+    <li *ngFor="let node of data">
+      <span>{{ node.name }}</span>
+      <button (click)="addNode(node, 'My custom node')">Add node</button>
+      <ul *ngIf="node.children">
+        <!-- TODO: add <app-recursive-tree [children]="node.children"></app-recursive-tree> -->
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h2>Iterative Tree</h2>
+  <ul>
+    <li *ngFor="let node of data">
+      <span>{{ node.name }}</span>
+      <button (click)="addNode(node, 'My custom node')">Add node</button>
+      <ul *ngIf="node.children">
+        <li *ngFor="let child of node.children">
+          <span>{{ child.name }}</span>
+          <button (click)="addNode(child, 'New Node')">Add node</button>
+          <ul *ngIf="child.children && child.children.length > 0">
+            <li *ngFor="let subChild of child.children">
+              {{ subChild.name }}
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
